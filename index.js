@@ -100,7 +100,9 @@
 			directionVector = {x: 2 * n.x * dot - invDirectionVector.x, y: 2 * n.y * dot - invDirectionVector.y};
 		}
 		ctx.font = "15px Arial";
-		ctx.fillText(rays + " rays", 5, 20);
+		if (clear) {
+			ctx.fillText(rays + " rays", 5, 20);
+		}
 	}
 
 	var frameAllDirections = () => {
