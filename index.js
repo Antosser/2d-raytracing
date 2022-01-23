@@ -3,6 +3,8 @@
 	var ctx = canvas[0].getContext("2d");
 	var origin = {x: 20, y: 300};
 
+	var showIntersections = false; 
+
 	canvas.width(innerWidth)
 	.height(innerHeight)
 	.attr('width', innerWidth)
@@ -66,9 +68,11 @@
 				}
 
 				//ctx.fillRect(ray.x + u1.x - 5, ray.y + u1.y - 5, 10, 10);
-				//ctx.fillRect(p1.x - 2, p1.y - 2, 4, 4);
-				//ctx.fillRect(p2.x - 2, p2.y - 2, 4, 4);
-				
+				if (showIntersections) {
+					ctx.fillRect(p1.x - 2, p1.y - 2, 4, 4);
+					ctx.fillRect(p2.x - 2, p2.y - 2, 4, 4);
+				}
+
 				if (intersection == null || Math.hypot(p1.x - ray.x, p1.y - ray.y) < Math.hypot(intersection.x - ray.x, intersection.y - ray.y)) {
 					intersection = p1;
 					reflectionObject = glassCircles[i];
@@ -130,6 +134,9 @@
 	$('html').keydown(e => {
 		if (e.keyCode == 32) {
 			frameAllDirections();
+		}
+		if (e.keyCode = 88) {
+			showIntersections = !showIntersections;
 		}
 		//console.log(e)
 	});
