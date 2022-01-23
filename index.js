@@ -118,7 +118,6 @@
 
 		let delta = Date.now() - startTime;
 		//ctx.font = "15px Arial";
-		ctx.fillStyle = "gray";
 		ctx.fillText(delta + " milliseconds", 5, 20);
 	}
 
