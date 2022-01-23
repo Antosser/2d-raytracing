@@ -104,6 +104,8 @@
 	}
 
 	var frameAllDirections = () => {
+		var startTime = Date.now();
+
 		let directions = 100000;
 		for (let i = 0; i < directions; i++) {
 			frame({
@@ -112,7 +114,7 @@
 			}, false);
 		}
 
-		var delta = Date.now() - startTime;
+		let delta = Date.now() - startTime;
 		//ctx.font = "15px Arial";
 		ctx.fillStyle = "gray";
 		ctx.fillText(delta + " milliseconds", 5, 20);
