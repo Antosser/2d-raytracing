@@ -3,6 +3,9 @@
 	var ctx = canvas[0].getContext("2d");
 	var origin = {x: 20, y: 300};
 
+	var lastX = 0;
+	var lastY = 0;
+
 	var showIntersections = false; 
 
 	canvas.width(innerWidth)
@@ -22,6 +25,9 @@
 	];
 
 	var frame = (e, clear=true) => {
+		lastX = e.offsetX;
+		lastY = e.offsetY;
+
 		if (clear) {
 			ctx.clearRect(0, 0, canvas.width(), canvas.height());
 		}
@@ -135,9 +141,12 @@
 		if (e.keyCode == 32) {
 			frameAllDirections();
 		}
-		if (e.keyCode = 88) {
+		if (e.keyCode == 88) {
 			showIntersections = !showIntersections;
-			frame();
+			frame({
+				offsetX: lastX,
+				offsetY: lastY,
+			});
 		}
 		//console.log(e)
 	});
