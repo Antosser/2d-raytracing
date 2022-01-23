@@ -137,6 +137,7 @@
 		}
 		if (e.keyCode = 88) {
 			showIntersections = !showIntersections;
+			frame();
 		}
 		//console.log(e)
 	});
